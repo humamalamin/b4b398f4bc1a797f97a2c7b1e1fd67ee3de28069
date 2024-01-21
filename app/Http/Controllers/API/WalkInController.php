@@ -73,7 +73,7 @@ class WalkInController extends Controller
             $request['status_id'] = $status->id;
             $reservation = $this->walkInRepo->lockForUpdate($request->all());
 
-            if (! $reservation) {
+            if ($reservation) {
                 $reservation = $this->walkInRepo->store($request->all());
 
                 $this->tableModelRepo->update($request->table_id, ['is_available' => false]);
@@ -91,7 +91,7 @@ class WalkInController extends Controller
         }
     }
 
-    public function update(StoreRequest $request, $id)
+    public function update(Request $request, $id)
     {
         DB::beginTransaction();
         try {

@@ -62,7 +62,7 @@ class TableModelController extends Controller
         }
     }
 
-    public function update(StoreRequest $request, $id)
+    public function update(Request $request, $id)
     {
         DB::beginTransaction();
         try {

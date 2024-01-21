@@ -68,13 +68,11 @@ class ReservationController extends Controller
             $request['user_id'] = auth()->user()->id;
             $request['status_id'] = $status->id;
             $reservation = $this->reservationRepo->lockForUpdate($request->all());
-
-            if (!$reservation) {
+            if (empty($reservation)) {
                 $reservation = $this->reservationRepo->store($request->all());
                 if ($status->name === 'Booked') {
                     $this->tableModelRepo->update($request->table_id, ['is_available' => false]);
                 }
-
                 $reservationDateTime = Carbon::parse(
                     $request->reservation_date . ' ' . $request->reservation_time
                 );
@@ -92,7 +90,7 @@ class ReservationController extends Controller
         }
     }
 
-    public function update(StoreRequest $request, $id)
+    public function update(Request $request, $id)
     {
         DB::beginTransaction();
         try {

@@ -35,3 +35,13 @@ php artisan serv
 ```
 
 if finish to step on top, please test API use POSTMAN
+
+### Running Unit Testing
+```Shell
+php artisan test
+```
+
+if you want to run coverage, you must install package [xdebug](https://xdebug.org/docs/install)
+```Shell
+php artisan test --coverage
+```

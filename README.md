@@ -1,7 +1,10 @@
 # API RESERVATION
 
+## Description
+This api using PHP 8.3 and framework laravel versi 10. Design Architecture  using [Repository Pattenr](https://medium.com/@Dewey92/repository-pattern-what-e47ddee3364d) for implement Pinciple SOLID Concept. For API i'm using REST API concept and for naming variable and format i'm using PSR12. 
+
 ## Tech Stack
-- PHP 8.1 or higher : https://www.php.net/downloads.php
+- PHP 8.3 or higher : https://www.php.net/downloads.php
 - Laravel 10.x : https://laravel.com
 - Mysql (Database) : https://www.mysql.com/downloads/
 - Composer : https://getcomposer.org/download/

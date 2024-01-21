@@ -1,0 +1,893 @@
+{
+	"info": {
+		"_postman_id": "603e0728-bdcc-4562-b81d-f707acf5aed2",
+		"name": "Reservation API Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2193265"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@admin.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://reservation-api-test.test/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"reservation-api-test",
+								"test"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"cust1@admin.com\",\n    \"password\": \"Strong.Pwd-123\",\n    \"password_confirm\": \"Strong.Pwd-123\",\n    \"name\": \"cust1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://reservation-api-test.test/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"reservation-api-test",
+								"test"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Table",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5YjIyZjA5Mi01NDkwLTQ3MzMtYjBiNS1mMzk5MmI5NmM0ZDYiLCJqdGkiOiIzOTRkNDQ0ZWIyZjVlZGU4NWIxOTUyMTI1MzQ3YjQxOTllNWU1NjI5Y2Q3NDIyZjU3YzM3YWI4NzAyYjllNzlkNmQ1ZWRmY2E3ODVlMjNhMCIsImlhdCI6MTcwNTc0MzY5NC40NzQ3ODEsIm5iZiI6MTcwNTc0MzY5NC40NzQ3ODIsImV4cCI6MTcyMTQ2ODQ5NC40Njc4MzYsInN1YiI6IjliMjJmMGFkLWM2MjctNGQ3MC1hOTJiLTRkMzIyOTEzYWU4MyIsInNjb3BlcyI6W119.bXvd92PvdjTURWErKg_fA43qFzTqy6tj-w_T0UjEvnrIw346gF1KUjgjhoosxoVAuosn_v5kHHZVl-AcCB4ypkmvHbsfab2_5JfKdxdwejMxB51NhBpbjfDuUNkq-k6uXAVYEh8KgbkfoVYVRK2kWo-pLjsXtUsL6zFviPykm9JLfu3yl7dU3_Kft9er7vNpGOGDZBAxdqZKKbWz0mWn9gHjcE9_dYp41AiMMm81TQsFdrbCugeavaBdONDVsMkKXEJb3UOV6NGNxOIXfdqgZ4-uYZ4TPYxnT53qNi3k-McVd664-psZc5m_I_n3a2Dmr7v5_b-DYnTWnZr6kf8tGmd6-kqGLZLmuHYURx2PHJyV7d4xoS99BciFUTX35wGIM7X2p3twYbB7ZDZwmZ9RsrQ7oNI8BbSSRwHKOLquRX3WCWjjmL3tmgRT2ffcFNfUhSXNwbcCK_Vvs91e2ITU26Ep3MYR1GBTHP8ImtXjGUadsfYlyACb8X928ERWfafCgAxlrtPlniWopFHmIytbc20rBGB__5-6jMxKTPvZYcjQ7Y2u3kl6yPSY2-5n8CjteXJk1h3-N8f2934wWKJfri_oJf7WwtI9bUaNWfefyZ2G_82cL3wKdETHuzTlZfTfa8AERcqo-z4WOxyPvPMfVNnE_QXitAUX0L14VhJIoFM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://reservation-api-test.test/api/tables?per_page=1&capacity=-1&is_available=&order_by=created_at&order_type=desc",
+							"protocol": "http",
+							"host": [
+								"reservation-api-test",
+								"test"
+							],
+							"path": [
+								"api",
+								"tables"
+							],
+							"query": [
+								{
+									"key": "per_page",
+									"value": "1"
+								},
+								{
+									"key": "capacity",
+									"value": "-1",
+									"description": "-1 menampilkan semua data"
+								},
+								{
+									"key": "is_available",
+									"value": "",
+									"description": "null atau string kosong untuk menampilkan semua"
+								},
+								{
+									"key": "order_by",
+									"value": "created_at",
+									"description": "default created_at"
+								},
+								{
+									"key": "order_type",
+									"value": "desc",
+									"description": "desc atau asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5YjIyZjA5Mi01NDkwLTQ3MzMtYjBiNS1mMzk5MmI5NmM0ZDYiLCJqdGkiOiIzOTRkNDQ0ZWIyZjVlZGU4NWIxOTUyMTI1MzQ3YjQxOTllNWU1NjI5Y2Q3NDIyZjU3YzM3YWI4NzAyYjllNzlkNmQ1ZWRmY2E3ODVlMjNhMCIsImlhdCI6MTcwNTc0MzY5NC40NzQ3ODEsIm5iZiI6MTcwNTc0MzY5NC40NzQ3ODIsImV4cCI6MTcyMTQ2ODQ5NC40Njc4MzYsInN1YiI6IjliMjJmMGFkLWM2MjctNGQ3MC1hOTJiLTRkMzIyOTEzYWU4MyIsInNjb3BlcyI6W119.bXvd92PvdjTURWErKg_fA43qFzTqy6tj-w_T0UjEvnrIw346gF1KUjgjhoosxoVAuosn_v5kHHZVl-AcCB4ypkmvHbsfab2_5JfKdxdwejMxB51NhBpbjfDuUNkq-k6uXAVYEh8KgbkfoVYVRK2kWo-pLjsXtUsL6zFviPykm9JLfu3yl7dU3_Kft9er7vNpGOGDZBAxdqZKKbWz0mWn9gHjcE9_dYp41AiMMm81TQsFdrbCugeavaBdONDVsMkKXEJb3UOV6NGNxOIXfdqgZ4-uYZ4TPYxnT53qNi3k-McVd664-psZc5m_I_n3a2Dmr7v5_b-DYnTWnZr6kf8tGmd6-kqGLZLmuHYURx2PHJyV7d4xoS99BciFUTX35wGIM7X2p3twYbB7ZDZwmZ9RsrQ7oNI8BbSSRwHKOLquRX3WCWjjmL3tmgRT2ffcFNfUhSXNwbcCK_Vvs91e2ITU26Ep3MYR1GBTHP8ImtXjGUadsfYlyACb8X928ERWfafCgAxlrtPlniWopFHmIytbc20rBGB__5-6jMxKTPvZYcjQ7Y2u3kl6yPSY2-5n8CjteXJk1h3-N8f2934wWKJfri_oJf7WwtI9bUaNWfefyZ2G_82cL3wKdETHuzTlZfTfa8AERcqo-z4WOxyPvPMfVNnE_QXitAUX0L14VhJIoFM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://reservation-api-test.test/api/tables/:id",
+							"protocol": "http",
+							"host": [
+								"reservation-api-test",
+								"test"
+							],
+							"path": [
+								"api",
+								"tables",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5YjIyZjA5Mi01NDkwLTQ3MzMtYjBiNS1mMzk5MmI5NmM0ZDYiLCJqdGkiOiIzOTRkNDQ0ZWIyZjVlZGU4NWIxOTUyMTI1MzQ3YjQxOTllNWU1NjI5Y2Q3NDIyZjU3YzM3YWI4NzAyYjllNzlkNmQ1ZWRmY2E3ODVlMjNhMCIsImlhdCI6MTcwNTc0MzY5NC40NzQ3ODEsIm5iZiI6MTcwNTc0MzY5NC40NzQ3ODIsImV4cCI6MTcyMTQ2ODQ5NC40Njc4MzYsInN1YiI6IjliMjJmMGFkLWM2MjctNGQ3MC1hOTJiLTRkMzIyOTEzYWU4MyIsInNjb3BlcyI6W119.bXvd92PvdjTURWErKg_fA43qFzTqy6tj-w_T0UjEvnrIw346gF1KUjgjhoosxoVAuosn_v5kHHZVl-AcCB4ypkmvHbsfab2_5JfKdxdwejMxB51NhBpbjfDuUNkq-k6uXAVYEh8KgbkfoVYVRK2kWo-pLjsXtUsL6zFviPykm9JLfu3yl7dU3_Kft9er7vNpGOGDZBAxdqZKKbWz0mWn9gHjcE9_dYp41AiMMm81TQsFdrbCugeavaBdONDVsMkKXEJb3UOV6NGNxOIXfdqgZ4-uYZ4TPYxnT53qNi3k-McVd664-psZc5m_I_n3a2Dmr7v5_b-DYnTWnZr6kf8tGmd6-kqGLZLmuHYURx2PHJyV7d4xoS99BciFUTX35wGIM7X2p3twYbB7ZDZwmZ9RsrQ7oNI8BbSSRwHKOLquRX3WCWjjmL3tmgRT2ffcFNfUhSXNwbcCK_Vvs91e2ITU26Ep3MYR1GBTHP8ImtXjGUadsfYlyACb8X928ERWfafCgAxlrtPlniWopFHmIytbc20rBGB__5-6jMxKTPvZYcjQ7Y2u3kl6yPSY2-5n8CjteXJk1h3-N8f2934wWKJfri_oJf7WwtI9bUaNWfefyZ2G_82cL3wKdETHuzTlZfTfa8AERcqo-z4WOxyPvPMfVNnE_QXitAUX0L14VhJIoFM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"table_number\": 2,\n    \"capacity\": 3,\n    \"is_available\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://reservation-api-test.test/api/tables",
+							"protocol": "http",
+							"host": [
+								"reservation-api-test",
+								"test"
+							],
+							"path": [
+								"api",
+								"tables"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5YjIyZjA5Mi01NDkwLTQ3MzMtYjBiNS1mMzk5MmI5NmM0ZDYiLCJqdGkiOiIzOTRkNDQ0ZWIyZjVlZGU4NWIxOTUyMTI1MzQ3YjQxOTllNWU1NjI5Y2Q3NDIyZjU3YzM3YWI4NzAyYjllNzlkNmQ1ZWRmY2E3ODVlMjNhMCIsImlhdCI6MTcwNTc0MzY5NC40NzQ3ODEsIm5iZiI6MTcwNTc0MzY5NC40NzQ3ODIsImV4cCI6MTcyMTQ2ODQ5NC40Njc4MzYsInN1YiI6IjliMjJmMGFkLWM2MjctNGQ3MC1hOTJiLTRkMzIyOTEzYWU4MyIsInNjb3BlcyI6W119.bXvd92PvdjTURWErKg_fA43qFzTqy6tj-w_T0UjEvnrIw346gF1KUjgjhoosxoVAuosn_v5kHHZVl-AcCB4ypkmvHbsfab2_5JfKdxdwejMxB51NhBpbjfDuUNkq-k6uXAVYEh8KgbkfoVYVRK2kWo-pLjsXtUsL6zFviPykm9JLfu3yl7dU3_Kft9er7vNpGOGDZBAxdqZKKbWz0mWn9gHjcE9_dYp41AiMMm81TQsFdrbCugeavaBdONDVsMkKXEJb3UOV6NGNxOIXfdqgZ4-uYZ4TPYxnT53qNi3k-McVd664-psZc5m_I_n3a2Dmr7v5_b-DYnTWnZr6kf8tGmd6-kqGLZLmuHYURx2PHJyV7d4xoS99BciFUTX35wGIM7X2p3twYbB7ZDZwmZ9RsrQ7oNI8BbSSRwHKOLquRX3WCWjjmL3tmgRT2ffcFNfUhSXNwbcCK_Vvs91e2ITU26Ep3MYR1GBTHP8ImtXjGUadsfYlyACb8X928ERWfafCgAxlrtPlniWopFHmIytbc20rBGB__5-6jMxKTPvZYcjQ7Y2u3kl6yPSY2-5n8CjteXJk1h3-N8f2934wWKJfri_oJf7WwtI9bUaNWfefyZ2G_82cL3wKdETHuzTlZfTfa8AERcqo-z4WOxyPvPMfVNnE_QXitAUX0L14VhJIoFM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"table_number\": 2,\n    \"capacity\": 3,\n    \"is_available\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://reservation-api-test.test/api/tables/:id",
+							"protocol": "http",
+							"host": [
+								"reservation-api-test",
+								"test"
+							],
+							"path": [
+								"api",
+								"tables",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "9b235601-20a6-40ab-913a-857956189d7b"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5YjIyZjA5Mi01NDkwLTQ3MzMtYjBiNS1mMzk5MmI5NmM0ZDYiLCJqdGkiOiIzOTRkNDQ0ZWIyZjVlZGU4NWIxOTUyMTI1MzQ3YjQxOTllNWU1NjI5Y2Q3NDIyZjU3YzM3YWI4NzAyYjllNzlkNmQ1ZWRmY2E3ODVlMjNhMCIsImlhdCI6MTcwNTc0MzY5NC40NzQ3ODEsIm5iZiI6MTcwNTc0MzY5NC40NzQ3ODIsImV4cCI6MTcyMTQ2ODQ5NC40Njc4MzYsInN1YiI6IjliMjJmMGFkLWM2MjctNGQ3MC1hOTJiLTRkMzIyOTEzYWU4MyIsInNjb3BlcyI6W119.bXvd92PvdjTURWErKg_fA43qFzTqy6tj-w_T0UjEvnrIw346gF1KUjgjhoosxoVAuosn_v5kHHZVl-AcCB4ypkmvHbsfab2_5JfKdxdwejMxB51NhBpbjfDuUNkq-k6uXAVYEh8KgbkfoVYVRK2kWo-pLjsXtUsL6zFviPykm9JLfu3yl7dU3_Kft9er7vNpGOGDZBAxdqZKKbWz0mWn9gHjcE9_dYp41AiMMm81TQsFdrbCugeavaBdONDVsMkKXEJb3UOV6NGNxOIXfdqgZ4-uYZ4TPYxnT53qNi3k-McVd664-psZc5m_I_n3a2Dmr7v5_b-DYnTWnZr6kf8tGmd6-kqGLZLmuHYURx2PHJyV7d4xoS99BciFUTX35wGIM7X2p3twYbB7ZDZwmZ9RsrQ7oNI8BbSSRwHKOLquRX3WCWjjmL3tmgRT2ffcFNfUhSXNwbcCK_Vvs91e2ITU26Ep3MYR1GBTHP8ImtXjGUadsfYlyACb8X928ERWfafCgAxlrtPlniWopFHmIytbc20rBGB__5-6jMxKTPvZYcjQ7Y2u3kl6yPSY2-5n8CjteXJk1h3-N8f2934wWKJfri_oJf7WwtI9bUaNWfefyZ2G_82cL3wKdETHuzTlZfTfa8AERcqo-z4WOxyPvPMfVNnE_QXitAUX0L14VhJIoFM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://reservation-api-test.test/api/tables/:id/delete",
+							"protocol": "http",
+							"host": [
+								"reservation-api-test",
+								"test"
+							],
+							"path": [
+								"api",
+								"tables",
+								":id",
+								"delete"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "9b235601-20a6-40ab-913a-857956189d7b"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reservation Status",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5YjIyZjA5Mi01NDkwLTQ3MzMtYjBiNS1mMzk5MmI5NmM0ZDYiLCJqdGkiOiIzOTRkNDQ0ZWIyZjVlZGU4NWIxOTUyMTI1MzQ3YjQxOTllNWU1NjI5Y2Q3NDIyZjU3YzM3YWI4NzAyYjllNzlkNmQ1ZWRmY2E3ODVlMjNhMCIsImlhdCI6MTcwNTc0MzY5NC40NzQ3ODEsIm5iZiI6MTcwNTc0MzY5NC40NzQ3ODIsImV4cCI6MTcyMTQ2ODQ5NC40Njc4MzYsInN1YiI6IjliMjJmMGFkLWM2MjctNGQ3MC1hOTJiLTRkMzIyOTEzYWU4MyIsInNjb3BlcyI6W119.bXvd92PvdjTURWErKg_fA43qFzTqy6tj-w_T0UjEvnrIw346gF1KUjgjhoosxoVAuosn_v5kHHZVl-AcCB4ypkmvHbsfab2_5JfKdxdwejMxB51NhBpbjfDuUNkq-k6uXAVYEh8KgbkfoVYVRK2kWo-pLjsXtUsL6zFviPykm9JLfu3yl7dU3_Kft9er7vNpGOGDZBAxdqZKKbWz0mWn9gHjcE9_dYp41AiMMm81TQsFdrbCugeavaBdONDVsMkKXEJb3UOV6NGNxOIXfdqgZ4-uYZ4TPYxnT53qNi3k-McVd664-psZc5m_I_n3a2Dmr7v5_b-DYnTWnZr6kf8tGmd6-kqGLZLmuHYURx2PHJyV7d4xoS99BciFUTX35wGIM7X2p3twYbB7ZDZwmZ9RsrQ7oNI8BbSSRwHKOLquRX3WCWjjmL3tmgRT2ffcFNfUhSXNwbcCK_Vvs91e2ITU26Ep3MYR1GBTHP8ImtXjGUadsfYlyACb8X928ERWfafCgAxlrtPlniWopFHmIytbc20rBGB__5-6jMxKTPvZYcjQ7Y2u3kl6yPSY2-5n8CjteXJk1h3-N8f2934wWKJfri_oJf7WwtI9bUaNWfefyZ2G_82cL3wKdETHuzTlZfTfa8AERcqo-z4WOxyPvPMfVNnE_QXitAUX0L14VhJIoFM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://reservation-api-test.test/api/reservation-statuses",
+							"protocol": "http",
+							"host": [
+								"reservation-api-test",
+								"test"
+							],
+							"path": [
+								"api",
+								"reservation-statuses"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reservation",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5YjIyZjA5Mi01NDkwLTQ3MzMtYjBiNS1mMzk5MmI5NmM0ZDYiLCJqdGkiOiIzOTRkNDQ0ZWIyZjVlZGU4NWIxOTUyMTI1MzQ3YjQxOTllNWU1NjI5Y2Q3NDIyZjU3YzM3YWI4NzAyYjllNzlkNmQ1ZWRmY2E3ODVlMjNhMCIsImlhdCI6MTcwNTc0MzY5NC40NzQ3ODEsIm5iZiI6MTcwNTc0MzY5NC40NzQ3ODIsImV4cCI6MTcyMTQ2ODQ5NC40Njc4MzYsInN1YiI6IjliMjJmMGFkLWM2MjctNGQ3MC1hOTJiLTRkMzIyOTEzYWU4MyIsInNjb3BlcyI6W119.bXvd92PvdjTURWErKg_fA43qFzTqy6tj-w_T0UjEvnrIw346gF1KUjgjhoosxoVAuosn_v5kHHZVl-AcCB4ypkmvHbsfab2_5JfKdxdwejMxB51NhBpbjfDuUNkq-k6uXAVYEh8KgbkfoVYVRK2kWo-pLjsXtUsL6zFviPykm9JLfu3yl7dU3_Kft9er7vNpGOGDZBAxdqZKKbWz0mWn9gHjcE9_dYp41AiMMm81TQsFdrbCugeavaBdONDVsMkKXEJb3UOV6NGNxOIXfdqgZ4-uYZ4TPYxnT53qNi3k-McVd664-psZc5m_I_n3a2Dmr7v5_b-DYnTWnZr6kf8tGmd6-kqGLZLmuHYURx2PHJyV7d4xoS99BciFUTX35wGIM7X2p3twYbB7ZDZwmZ9RsrQ7oNI8BbSSRwHKOLquRX3WCWjjmL3tmgRT2ffcFNfUhSXNwbcCK_Vvs91e2ITU26Ep3MYR1GBTHP8ImtXjGUadsfYlyACb8X928ERWfafCgAxlrtPlniWopFHmIytbc20rBGB__5-6jMxKTPvZYcjQ7Y2u3kl6yPSY2-5n8CjteXJk1h3-N8f2934wWKJfri_oJf7WwtI9bUaNWfefyZ2G_82cL3wKdETHuzTlZfTfa8AERcqo-z4WOxyPvPMfVNnE_QXitAUX0L14VhJIoFM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://reservation-api-test.test/api/reservations?order_by&order_type&status_id&reservation_date&reservation_time&table_id&name",
+							"protocol": "http",
+							"host": [
+								"reservation-api-test",
+								"test"
+							],
+							"path": [
+								"api",
+								"reservations"
+							],
+							"query": [
+								{
+									"key": "order_by",
+									"value": null
+								},
+								{
+									"key": "order_type",
+									"value": null
+								},
+								{
+									"key": "status_id",
+									"value": null
+								},
+								{
+									"key": "reservation_date",
+									"value": null,
+									"description": "Y-m-d"
+								},
+								{
+									"key": "reservation_time",
+									"value": null,
+									"description": "H:i:m"
+								},
+								{
+									"key": "table_id",
+									"value": null
+								},
+								{
+									"key": "name",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5YjIyZjA5Mi01NDkwLTQ3MzMtYjBiNS1mMzk5MmI5NmM0ZDYiLCJqdGkiOiIzOTRkNDQ0ZWIyZjVlZGU4NWIxOTUyMTI1MzQ3YjQxOTllNWU1NjI5Y2Q3NDIyZjU3YzM3YWI4NzAyYjllNzlkNmQ1ZWRmY2E3ODVlMjNhMCIsImlhdCI6MTcwNTc0MzY5NC40NzQ3ODEsIm5iZiI6MTcwNTc0MzY5NC40NzQ3ODIsImV4cCI6MTcyMTQ2ODQ5NC40Njc4MzYsInN1YiI6IjliMjJmMGFkLWM2MjctNGQ3MC1hOTJiLTRkMzIyOTEzYWU4MyIsInNjb3BlcyI6W119.bXvd92PvdjTURWErKg_fA43qFzTqy6tj-w_T0UjEvnrIw346gF1KUjgjhoosxoVAuosn_v5kHHZVl-AcCB4ypkmvHbsfab2_5JfKdxdwejMxB51NhBpbjfDuUNkq-k6uXAVYEh8KgbkfoVYVRK2kWo-pLjsXtUsL6zFviPykm9JLfu3yl7dU3_Kft9er7vNpGOGDZBAxdqZKKbWz0mWn9gHjcE9_dYp41AiMMm81TQsFdrbCugeavaBdONDVsMkKXEJb3UOV6NGNxOIXfdqgZ4-uYZ4TPYxnT53qNi3k-McVd664-psZc5m_I_n3a2Dmr7v5_b-DYnTWnZr6kf8tGmd6-kqGLZLmuHYURx2PHJyV7d4xoS99BciFUTX35wGIM7X2p3twYbB7ZDZwmZ9RsrQ7oNI8BbSSRwHKOLquRX3WCWjjmL3tmgRT2ffcFNfUhSXNwbcCK_Vvs91e2ITU26Ep3MYR1GBTHP8ImtXjGUadsfYlyACb8X928ERWfafCgAxlrtPlniWopFHmIytbc20rBGB__5-6jMxKTPvZYcjQ7Y2u3kl6yPSY2-5n8CjteXJk1h3-N8f2934wWKJfri_oJf7WwtI9bUaNWfefyZ2G_82cL3wKdETHuzTlZfTfa8AERcqo-z4WOxyPvPMfVNnE_QXitAUX0L14VhJIoFM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://reservation-api-test.test/api/reservations/:id",
+							"protocol": "http",
+							"host": [
+								"reservation-api-test",
+								"test"
+							],
+							"path": [
+								"api",
+								"reservations",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5YjIyZjA5Mi01NDkwLTQ3MzMtYjBiNS1mMzk5MmI5NmM0ZDYiLCJqdGkiOiIzOTRkNDQ0ZWIyZjVlZGU4NWIxOTUyMTI1MzQ3YjQxOTllNWU1NjI5Y2Q3NDIyZjU3YzM3YWI4NzAyYjllNzlkNmQ1ZWRmY2E3ODVlMjNhMCIsImlhdCI6MTcwNTc0MzY5NC40NzQ3ODEsIm5iZiI6MTcwNTc0MzY5NC40NzQ3ODIsImV4cCI6MTcyMTQ2ODQ5NC40Njc4MzYsInN1YiI6IjliMjJmMGFkLWM2MjctNGQ3MC1hOTJiLTRkMzIyOTEzYWU4MyIsInNjb3BlcyI6W119.bXvd92PvdjTURWErKg_fA43qFzTqy6tj-w_T0UjEvnrIw346gF1KUjgjhoosxoVAuosn_v5kHHZVl-AcCB4ypkmvHbsfab2_5JfKdxdwejMxB51NhBpbjfDuUNkq-k6uXAVYEh8KgbkfoVYVRK2kWo-pLjsXtUsL6zFviPykm9JLfu3yl7dU3_Kft9er7vNpGOGDZBAxdqZKKbWz0mWn9gHjcE9_dYp41AiMMm81TQsFdrbCugeavaBdONDVsMkKXEJb3UOV6NGNxOIXfdqgZ4-uYZ4TPYxnT53qNi3k-McVd664-psZc5m_I_n3a2Dmr7v5_b-DYnTWnZr6kf8tGmd6-kqGLZLmuHYURx2PHJyV7d4xoS99BciFUTX35wGIM7X2p3twYbB7ZDZwmZ9RsrQ7oNI8BbSSRwHKOLquRX3WCWjjmL3tmgRT2ffcFNfUhSXNwbcCK_Vvs91e2ITU26Ep3MYR1GBTHP8ImtXjGUadsfYlyACb8X928ERWfafCgAxlrtPlniWopFHmIytbc20rBGB__5-6jMxKTPvZYcjQ7Y2u3kl6yPSY2-5n8CjteXJk1h3-N8f2934wWKJfri_oJf7WwtI9bUaNWfefyZ2G_82cL3wKdETHuzTlZfTfa8AERcqo-z4WOxyPvPMfVNnE_QXitAUX0L14VhJIoFM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"table_id\": \"9b235601-20a6-40ab-913a-857956189d7b\",\n    \"reservation_date\": \"2024-01-21\",\n    \"reservation_time\": \"12:54:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://reservation-api-test.test/api/reservations",
+							"protocol": "http",
+							"host": [
+								"reservation-api-test",
+								"test"
+							],
+							"path": [
+								"api",
+								"reservations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5YjIyZjA5Mi01NDkwLTQ3MzMtYjBiNS1mMzk5MmI5NmM0ZDYiLCJqdGkiOiIzOTRkNDQ0ZWIyZjVlZGU4NWIxOTUyMTI1MzQ3YjQxOTllNWU1NjI5Y2Q3NDIyZjU3YzM3YWI4NzAyYjllNzlkNmQ1ZWRmY2E3ODVlMjNhMCIsImlhdCI6MTcwNTc0MzY5NC40NzQ3ODEsIm5iZiI6MTcwNTc0MzY5NC40NzQ3ODIsImV4cCI6MTcyMTQ2ODQ5NC40Njc4MzYsInN1YiI6IjliMjJmMGFkLWM2MjctNGQ3MC1hOTJiLTRkMzIyOTEzYWU4MyIsInNjb3BlcyI6W119.bXvd92PvdjTURWErKg_fA43qFzTqy6tj-w_T0UjEvnrIw346gF1KUjgjhoosxoVAuosn_v5kHHZVl-AcCB4ypkmvHbsfab2_5JfKdxdwejMxB51NhBpbjfDuUNkq-k6uXAVYEh8KgbkfoVYVRK2kWo-pLjsXtUsL6zFviPykm9JLfu3yl7dU3_Kft9er7vNpGOGDZBAxdqZKKbWz0mWn9gHjcE9_dYp41AiMMm81TQsFdrbCugeavaBdONDVsMkKXEJb3UOV6NGNxOIXfdqgZ4-uYZ4TPYxnT53qNi3k-McVd664-psZc5m_I_n3a2Dmr7v5_b-DYnTWnZr6kf8tGmd6-kqGLZLmuHYURx2PHJyV7d4xoS99BciFUTX35wGIM7X2p3twYbB7ZDZwmZ9RsrQ7oNI8BbSSRwHKOLquRX3WCWjjmL3tmgRT2ffcFNfUhSXNwbcCK_Vvs91e2ITU26Ep3MYR1GBTHP8ImtXjGUadsfYlyACb8X928ERWfafCgAxlrtPlniWopFHmIytbc20rBGB__5-6jMxKTPvZYcjQ7Y2u3kl6yPSY2-5n8CjteXJk1h3-N8f2934wWKJfri_oJf7WwtI9bUaNWfefyZ2G_82cL3wKdETHuzTlZfTfa8AERcqo-z4WOxyPvPMfVNnE_QXitAUX0L14VhJIoFM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"table_id\": \"9b235601-20a6-40ab-913a-857956189d7b\",\n    \"reservation_date\": \"2024-01-25\",\n    \"reservation_time\": \"14:00:00\",\n    \"status_id\": \"85bd3d7f-6540-45df-95a8-934352ff6084\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://reservation-api-test.test/api/reservations/:id",
+							"protocol": "http",
+							"host": [
+								"reservation-api-test",
+								"test"
+							],
+							"path": [
+								"api",
+								"reservations",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "9b24a26b-edfa-45cf-964c-616c363c4e38"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5YjIyZjA5Mi01NDkwLTQ3MzMtYjBiNS1mMzk5MmI5NmM0ZDYiLCJqdGkiOiIzOTRkNDQ0ZWIyZjVlZGU4NWIxOTUyMTI1MzQ3YjQxOTllNWU1NjI5Y2Q3NDIyZjU3YzM3YWI4NzAyYjllNzlkNmQ1ZWRmY2E3ODVlMjNhMCIsImlhdCI6MTcwNTc0MzY5NC40NzQ3ODEsIm5iZiI6MTcwNTc0MzY5NC40NzQ3ODIsImV4cCI6MTcyMTQ2ODQ5NC40Njc4MzYsInN1YiI6IjliMjJmMGFkLWM2MjctNGQ3MC1hOTJiLTRkMzIyOTEzYWU4MyIsInNjb3BlcyI6W119.bXvd92PvdjTURWErKg_fA43qFzTqy6tj-w_T0UjEvnrIw346gF1KUjgjhoosxoVAuosn_v5kHHZVl-AcCB4ypkmvHbsfab2_5JfKdxdwejMxB51NhBpbjfDuUNkq-k6uXAVYEh8KgbkfoVYVRK2kWo-pLjsXtUsL6zFviPykm9JLfu3yl7dU3_Kft9er7vNpGOGDZBAxdqZKKbWz0mWn9gHjcE9_dYp41AiMMm81TQsFdrbCugeavaBdONDVsMkKXEJb3UOV6NGNxOIXfdqgZ4-uYZ4TPYxnT53qNi3k-McVd664-psZc5m_I_n3a2Dmr7v5_b-DYnTWnZr6kf8tGmd6-kqGLZLmuHYURx2PHJyV7d4xoS99BciFUTX35wGIM7X2p3twYbB7ZDZwmZ9RsrQ7oNI8BbSSRwHKOLquRX3WCWjjmL3tmgRT2ffcFNfUhSXNwbcCK_Vvs91e2ITU26Ep3MYR1GBTHP8ImtXjGUadsfYlyACb8X928ERWfafCgAxlrtPlniWopFHmIytbc20rBGB__5-6jMxKTPvZYcjQ7Y2u3kl6yPSY2-5n8CjteXJk1h3-N8f2934wWKJfri_oJf7WwtI9bUaNWfefyZ2G_82cL3wKdETHuzTlZfTfa8AERcqo-z4WOxyPvPMfVNnE_QXitAUX0L14VhJIoFM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://reservation-api-test.test/api/reservations/:id/delete",
+							"protocol": "http",
+							"host": [
+								"reservation-api-test",
+								"test"
+							],
+							"path": [
+								"api",
+								"reservations",
+								":id",
+								"delete"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "9b24a26b-edfa-45cf-964c-616c363c4e38"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "WalkIn",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5YjIyZjA5Mi01NDkwLTQ3MzMtYjBiNS1mMzk5MmI5NmM0ZDYiLCJqdGkiOiIzOTRkNDQ0ZWIyZjVlZGU4NWIxOTUyMTI1MzQ3YjQxOTllNWU1NjI5Y2Q3NDIyZjU3YzM3YWI4NzAyYjllNzlkNmQ1ZWRmY2E3ODVlMjNhMCIsImlhdCI6MTcwNTc0MzY5NC40NzQ3ODEsIm5iZiI6MTcwNTc0MzY5NC40NzQ3ODIsImV4cCI6MTcyMTQ2ODQ5NC40Njc4MzYsInN1YiI6IjliMjJmMGFkLWM2MjctNGQ3MC1hOTJiLTRkMzIyOTEzYWU4MyIsInNjb3BlcyI6W119.bXvd92PvdjTURWErKg_fA43qFzTqy6tj-w_T0UjEvnrIw346gF1KUjgjhoosxoVAuosn_v5kHHZVl-AcCB4ypkmvHbsfab2_5JfKdxdwejMxB51NhBpbjfDuUNkq-k6uXAVYEh8KgbkfoVYVRK2kWo-pLjsXtUsL6zFviPykm9JLfu3yl7dU3_Kft9er7vNpGOGDZBAxdqZKKbWz0mWn9gHjcE9_dYp41AiMMm81TQsFdrbCugeavaBdONDVsMkKXEJb3UOV6NGNxOIXfdqgZ4-uYZ4TPYxnT53qNi3k-McVd664-psZc5m_I_n3a2Dmr7v5_b-DYnTWnZr6kf8tGmd6-kqGLZLmuHYURx2PHJyV7d4xoS99BciFUTX35wGIM7X2p3twYbB7ZDZwmZ9RsrQ7oNI8BbSSRwHKOLquRX3WCWjjmL3tmgRT2ffcFNfUhSXNwbcCK_Vvs91e2ITU26Ep3MYR1GBTHP8ImtXjGUadsfYlyACb8X928ERWfafCgAxlrtPlniWopFHmIytbc20rBGB__5-6jMxKTPvZYcjQ7Y2u3kl6yPSY2-5n8CjteXJk1h3-N8f2934wWKJfri_oJf7WwtI9bUaNWfefyZ2G_82cL3wKdETHuzTlZfTfa8AERcqo-z4WOxyPvPMfVNnE_QXitAUX0L14VhJIoFM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://reservation-api-test.test/api/walk-ins?order_by&order_type&status_id&request_date&request_time&table_id&name",
+							"protocol": "http",
+							"host": [
+								"reservation-api-test",
+								"test"
+							],
+							"path": [
+								"api",
+								"walk-ins"
+							],
+							"query": [
+								{
+									"key": "order_by",
+									"value": null
+								},
+								{
+									"key": "order_type",
+									"value": null
+								},
+								{
+									"key": "status_id",
+									"value": null
+								},
+								{
+									"key": "request_date",
+									"value": null,
+									"description": "Y-m-d"
+								},
+								{
+									"key": "request_time",
+									"value": null,
+									"description": "H:i:m"
+								},
+								{
+									"key": "table_id",
+									"value": null
+								},
+								{
+									"key": "name",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5YjIyZjA5Mi01NDkwLTQ3MzMtYjBiNS1mMzk5MmI5NmM0ZDYiLCJqdGkiOiIzOTRkNDQ0ZWIyZjVlZGU4NWIxOTUyMTI1MzQ3YjQxOTllNWU1NjI5Y2Q3NDIyZjU3YzM3YWI4NzAyYjllNzlkNmQ1ZWRmY2E3ODVlMjNhMCIsImlhdCI6MTcwNTc0MzY5NC40NzQ3ODEsIm5iZiI6MTcwNTc0MzY5NC40NzQ3ODIsImV4cCI6MTcyMTQ2ODQ5NC40Njc4MzYsInN1YiI6IjliMjJmMGFkLWM2MjctNGQ3MC1hOTJiLTRkMzIyOTEzYWU4MyIsInNjb3BlcyI6W119.bXvd92PvdjTURWErKg_fA43qFzTqy6tj-w_T0UjEvnrIw346gF1KUjgjhoosxoVAuosn_v5kHHZVl-AcCB4ypkmvHbsfab2_5JfKdxdwejMxB51NhBpbjfDuUNkq-k6uXAVYEh8KgbkfoVYVRK2kWo-pLjsXtUsL6zFviPykm9JLfu3yl7dU3_Kft9er7vNpGOGDZBAxdqZKKbWz0mWn9gHjcE9_dYp41AiMMm81TQsFdrbCugeavaBdONDVsMkKXEJb3UOV6NGNxOIXfdqgZ4-uYZ4TPYxnT53qNi3k-McVd664-psZc5m_I_n3a2Dmr7v5_b-DYnTWnZr6kf8tGmd6-kqGLZLmuHYURx2PHJyV7d4xoS99BciFUTX35wGIM7X2p3twYbB7ZDZwmZ9RsrQ7oNI8BbSSRwHKOLquRX3WCWjjmL3tmgRT2ffcFNfUhSXNwbcCK_Vvs91e2ITU26Ep3MYR1GBTHP8ImtXjGUadsfYlyACb8X928ERWfafCgAxlrtPlniWopFHmIytbc20rBGB__5-6jMxKTPvZYcjQ7Y2u3kl6yPSY2-5n8CjteXJk1h3-N8f2934wWKJfri_oJf7WwtI9bUaNWfefyZ2G_82cL3wKdETHuzTlZfTfa8AERcqo-z4WOxyPvPMfVNnE_QXitAUX0L14VhJIoFM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://reservation-api-test.test/api/walk-ins/:id",
+							"protocol": "http",
+							"host": [
+								"reservation-api-test",
+								"test"
+							],
+							"path": [
+								"api",
+								"walk-ins",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5YjIyZjA5Mi01NDkwLTQ3MzMtYjBiNS1mMzk5MmI5NmM0ZDYiLCJqdGkiOiIzOTRkNDQ0ZWIyZjVlZGU4NWIxOTUyMTI1MzQ3YjQxOTllNWU1NjI5Y2Q3NDIyZjU3YzM3YWI4NzAyYjllNzlkNmQ1ZWRmY2E3ODVlMjNhMCIsImlhdCI6MTcwNTc0MzY5NC40NzQ3ODEsIm5iZiI6MTcwNTc0MzY5NC40NzQ3ODIsImV4cCI6MTcyMTQ2ODQ5NC40Njc4MzYsInN1YiI6IjliMjJmMGFkLWM2MjctNGQ3MC1hOTJiLTRkMzIyOTEzYWU4MyIsInNjb3BlcyI6W119.bXvd92PvdjTURWErKg_fA43qFzTqy6tj-w_T0UjEvnrIw346gF1KUjgjhoosxoVAuosn_v5kHHZVl-AcCB4ypkmvHbsfab2_5JfKdxdwejMxB51NhBpbjfDuUNkq-k6uXAVYEh8KgbkfoVYVRK2kWo-pLjsXtUsL6zFviPykm9JLfu3yl7dU3_Kft9er7vNpGOGDZBAxdqZKKbWz0mWn9gHjcE9_dYp41AiMMm81TQsFdrbCugeavaBdONDVsMkKXEJb3UOV6NGNxOIXfdqgZ4-uYZ4TPYxnT53qNi3k-McVd664-psZc5m_I_n3a2Dmr7v5_b-DYnTWnZr6kf8tGmd6-kqGLZLmuHYURx2PHJyV7d4xoS99BciFUTX35wGIM7X2p3twYbB7ZDZwmZ9RsrQ7oNI8BbSSRwHKOLquRX3WCWjjmL3tmgRT2ffcFNfUhSXNwbcCK_Vvs91e2ITU26Ep3MYR1GBTHP8ImtXjGUadsfYlyACb8X928ERWfafCgAxlrtPlniWopFHmIytbc20rBGB__5-6jMxKTPvZYcjQ7Y2u3kl6yPSY2-5n8CjteXJk1h3-N8f2934wWKJfri_oJf7WwtI9bUaNWfefyZ2G_82cL3wKdETHuzTlZfTfa8AERcqo-z4WOxyPvPMfVNnE_QXitAUX0L14VhJIoFM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"table_id\": \"9b235601-20a6-40ab-913a-857956189d7b\",\n    \"request_date\": \"2024-01-21\",\n    \"request_time\": \"12:54:00\",\n    \"user_id\": \"9b235601-20a6-40ab-913a-857956189d7b\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://reservation-api-test.test/api/walk-ins",
+							"protocol": "http",
+							"host": [
+								"reservation-api-test",
+								"test"
+							],
+							"path": [
+								"api",
+								"walk-ins"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5YjIyZjA5Mi01NDkwLTQ3MzMtYjBiNS1mMzk5MmI5NmM0ZDYiLCJqdGkiOiIzOTRkNDQ0ZWIyZjVlZGU4NWIxOTUyMTI1MzQ3YjQxOTllNWU1NjI5Y2Q3NDIyZjU3YzM3YWI4NzAyYjllNzlkNmQ1ZWRmY2E3ODVlMjNhMCIsImlhdCI6MTcwNTc0MzY5NC40NzQ3ODEsIm5iZiI6MTcwNTc0MzY5NC40NzQ3ODIsImV4cCI6MTcyMTQ2ODQ5NC40Njc4MzYsInN1YiI6IjliMjJmMGFkLWM2MjctNGQ3MC1hOTJiLTRkMzIyOTEzYWU4MyIsInNjb3BlcyI6W119.bXvd92PvdjTURWErKg_fA43qFzTqy6tj-w_T0UjEvnrIw346gF1KUjgjhoosxoVAuosn_v5kHHZVl-AcCB4ypkmvHbsfab2_5JfKdxdwejMxB51NhBpbjfDuUNkq-k6uXAVYEh8KgbkfoVYVRK2kWo-pLjsXtUsL6zFviPykm9JLfu3yl7dU3_Kft9er7vNpGOGDZBAxdqZKKbWz0mWn9gHjcE9_dYp41AiMMm81TQsFdrbCugeavaBdONDVsMkKXEJb3UOV6NGNxOIXfdqgZ4-uYZ4TPYxnT53qNi3k-McVd664-psZc5m_I_n3a2Dmr7v5_b-DYnTWnZr6kf8tGmd6-kqGLZLmuHYURx2PHJyV7d4xoS99BciFUTX35wGIM7X2p3twYbB7ZDZwmZ9RsrQ7oNI8BbSSRwHKOLquRX3WCWjjmL3tmgRT2ffcFNfUhSXNwbcCK_Vvs91e2ITU26Ep3MYR1GBTHP8ImtXjGUadsfYlyACb8X928ERWfafCgAxlrtPlniWopFHmIytbc20rBGB__5-6jMxKTPvZYcjQ7Y2u3kl6yPSY2-5n8CjteXJk1h3-N8f2934wWKJfri_oJf7WwtI9bUaNWfefyZ2G_82cL3wKdETHuzTlZfTfa8AERcqo-z4WOxyPvPMfVNnE_QXitAUX0L14VhJIoFM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"table_id\": \"9b235601-20a6-40ab-913a-857956189d7b\",\n    \"request_date\": \"2024-01-21\",\n    \"request_time\": \"12:54:00\",\n    \"user_id\": \"9b235601-20a6-40ab-913a-857956189d7b\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://reservation-api-test.test/api/walk-ins/:id",
+							"protocol": "http",
+							"host": [
+								"reservation-api-test",
+								"test"
+							],
+							"path": [
+								"api",
+								"walk-ins",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "9b24a26b-edfa-45cf-964c-616c363c4e38"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5YjIyZjA5Mi01NDkwLTQ3MzMtYjBiNS1mMzk5MmI5NmM0ZDYiLCJqdGkiOiIzOTRkNDQ0ZWIyZjVlZGU4NWIxOTUyMTI1MzQ3YjQxOTllNWU1NjI5Y2Q3NDIyZjU3YzM3YWI4NzAyYjllNzlkNmQ1ZWRmY2E3ODVlMjNhMCIsImlhdCI6MTcwNTc0MzY5NC40NzQ3ODEsIm5iZiI6MTcwNTc0MzY5NC40NzQ3ODIsImV4cCI6MTcyMTQ2ODQ5NC40Njc4MzYsInN1YiI6IjliMjJmMGFkLWM2MjctNGQ3MC1hOTJiLTRkMzIyOTEzYWU4MyIsInNjb3BlcyI6W119.bXvd92PvdjTURWErKg_fA43qFzTqy6tj-w_T0UjEvnrIw346gF1KUjgjhoosxoVAuosn_v5kHHZVl-AcCB4ypkmvHbsfab2_5JfKdxdwejMxB51NhBpbjfDuUNkq-k6uXAVYEh8KgbkfoVYVRK2kWo-pLjsXtUsL6zFviPykm9JLfu3yl7dU3_Kft9er7vNpGOGDZBAxdqZKKbWz0mWn9gHjcE9_dYp41AiMMm81TQsFdrbCugeavaBdONDVsMkKXEJb3UOV6NGNxOIXfdqgZ4-uYZ4TPYxnT53qNi3k-McVd664-psZc5m_I_n3a2Dmr7v5_b-DYnTWnZr6kf8tGmd6-kqGLZLmuHYURx2PHJyV7d4xoS99BciFUTX35wGIM7X2p3twYbB7ZDZwmZ9RsrQ7oNI8BbSSRwHKOLquRX3WCWjjmL3tmgRT2ffcFNfUhSXNwbcCK_Vvs91e2ITU26Ep3MYR1GBTHP8ImtXjGUadsfYlyACb8X928ERWfafCgAxlrtPlniWopFHmIytbc20rBGB__5-6jMxKTPvZYcjQ7Y2u3kl6yPSY2-5n8CjteXJk1h3-N8f2934wWKJfri_oJf7WwtI9bUaNWfefyZ2G_82cL3wKdETHuzTlZfTfa8AERcqo-z4WOxyPvPMfVNnE_QXitAUX0L14VhJIoFM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://reservation-api-test.test/api/walk-ins/:id/delete",
+							"protocol": "http",
+							"host": [
+								"reservation-api-test",
+								"test"
+							],
+							"path": [
+								"api",
+								"walk-ins",
+								":id",
+								"delete"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "9b24a26b-edfa-45cf-964c-616c363c4e38"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

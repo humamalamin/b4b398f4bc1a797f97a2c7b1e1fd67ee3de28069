@@ -14,7 +14,7 @@ All configuration is in `.env` file. Please Import file Reservation API Test.pos
 
 ## Diagram Schema Database
 
-![Schema Database Mapping][diagram-reservation-test-api.png]
+![Schema Database Mapping](diagram-reservation-test-api.png)
 
 ### Step by step run Project
 
